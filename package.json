@@ -1,0 +1,15 @@
+{
+  "name": "nodealexmozg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js 2 40",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Mozg",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
