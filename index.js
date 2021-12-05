@@ -27,25 +27,20 @@ function giveMePrimes(startNum, lastNum) {
 const start = process.argv[2];
 const end = process.argv[3];
 const primeMassive = giveMePrimes(start, end);
+let z3 = 0; //счетчик прохода каждого тройного цикла i
 
 for (let i = 0; i < primeMassive.length; i++) {
-    if ((i + 1) % 3 === 0) {
-        console.log(i, ' каждое третье число:', colors.green(primeMassive[i]));
+    z3 = Math.trunc(i / 3);
+
+    if (i === 0 + 3 * z3) {
+        console.log('i=', i, ' z3=', z3, ' каждое первое число:', colors.red(primeMassive[i]));
         continue;
     }
-    if ((i + 1) % 2 === 0) {
-        console.log(i, ' каждое второе число:', colors.yellow(primeMassive[i]));
+    if (i === 1 + 3 * z3) {
+        console.log('i=', i, ' z3=', z3, ' каждое второе число:', colors.yellow(primeMassive[i]));
         continue;
     }
-    console.log(i, ' каждое первое число:', colors.red(primeMassive[i]));
+    console.log('i=', i, ' z3=', z3, ' каждое третье число:', colors.green(primeMassive[i]));
 }
-
-
-
-
-
-    //console.log(colors.grey.bgGreen(primeMassive));
-
-
 
 
