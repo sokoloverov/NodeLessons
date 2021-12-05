@@ -11,7 +11,6 @@ function giveMePrimes(startNum, lastNum) {
     let sito = []; //не простые числа в сите
     let primeNumders = []; //массив простых чисел
     //способ "решето Эратосфена"
-    if (startNum < 2) return 'Что-то пошло не так, зачем указывать в первом аргументе число меньше 2!?';
     for (let i = 2; i <= lastNum; i++) {
         if (!sito[i]) {
             for (let j = i * i; j <= lastNum; j += i) {
@@ -26,21 +25,32 @@ function giveMePrimes(startNum, lastNum) {
 
 const start = process.argv[2];
 const end = process.argv[3];
-const primeMassive = giveMePrimes(start, end);
-let z3 = 0; //счетчик прохода каждого тройного цикла i
+//проверка на вшивость введенных значений
+if (start === undefined || end === undefined) {
+    console.log(colors.bgYellow.black('Необходимо ввести два аргумента: начало и конец диапазона'));
+} else {
+    if (start < 2) {
+        console.log(colors.bgYellow.black('Что-то пошло не так, зачем указывать в первом аргументе число меньше 2!?'));
+    } else {
+        if (end > 10000) {
+            console.log(colors.bgYellow.black('Если не жако процессор, можно отдать свой компьютер дворнику-узбеку, пусть в Ведьмака играет'));
+        } else {
+            //проверка на вшивость закончена
+            const primeMassive = giveMePrimes(start, end);
 
-for (let i = 0; i < primeMassive.length; i++) {
-    z3 = Math.trunc(i / 3);
-
-    if (i === 0 + 3 * z3) {
-        console.log('i=', i, ' z3=', z3, ' каждое первое число:', colors.red(primeMassive[i]));
-        continue;
+            let z3 = 0; //счетчик прохода каждого тройного цикла i
+            for (let i = 0; i < primeMassive.length; i++) {
+                z3 = Math.trunc(i / 3);
+                if (i === 0 + 3 * z3) {
+                    console.log('i=', i, ' z3=', z3, ' каждое первое число:', colors.red(primeMassive[i]));
+                    continue;
+                }
+                if (i === 1 + 3 * z3) {
+                    console.log('i=', i, ' z3=', z3, ' каждое второе число:', colors.yellow(primeMassive[i]));
+                    continue;
+                }
+                console.log('i=', i, ' z3=', z3, ' каждое третье число:', colors.green(primeMassive[i]));
+            }
+        }
     }
-    if (i === 1 + 3 * z3) {
-        console.log('i=', i, ' z3=', z3, ' каждое второе число:', colors.yellow(primeMassive[i]));
-        continue;
-    }
-    console.log('i=', i, ' z3=', z3, ' каждое третье число:', colors.green(primeMassive[i]));
 }
-
-
