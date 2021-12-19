@@ -5,14 +5,20 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node apocalypse.js 10 0.5",
+    "start0": "node apocalypse.js 10 0.5",
+    "start": "node dir.cjs",
     "start1": "node index.js 2 40",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "reader": "dir.cjs"
   },
   "author": "Alex Mozg",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
-    "date-fns": "^2.27.0"
+    "date-fns": "^2.27.0",
+    "inquirer": "^8.2.0",
+    "yargs": "^17.3.0"
   }
 }
