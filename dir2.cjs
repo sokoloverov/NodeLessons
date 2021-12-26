@@ -1,11 +1,8 @@
 const fs = require("fs");
-const { lstatSync } = require('fs');
 const yargs = require("yargs");
 const path = require("path");
-const readline = require("readline");
 const inquirer = require("inquirer");
-const { resolve } = require("path");
-const { rawListeners } = require("process");
+
 
 let executionDirectory = process.cwd();
 
@@ -53,6 +50,4 @@ let proba = () => {
         });
 };
 
-proba();
-
-
+//proba();
