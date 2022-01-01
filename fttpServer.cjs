@@ -2,21 +2,18 @@ const fs = require("fs");
 const path = require("path");
 const http = require("http");
 
-const filePath1 = path.join(__dirname, 'access1.html');
+const filePath1 = path.join(__dirname, 'index.html');
 readStream = fs.createReadStream(filePath1);
 
 
 http.createServer((request, response) => {
 
     if (request.method === 'GET') {
-
-        response.setHeader('Content-Type', 'html/javascript');
-
+        //response.setHeader('Content-Type', 'text/html');
         response.writeHead(200, {
-            'Custom-header-2': 'Custom header value 2',
-            'Content-Type': 'text/javascript'
+            'Content-Type': 'text/html; charset=utf-8'
         });
-        readStream.pipe(response)
+        readStream.pipe(response);
 
         //response.write('That is all');
         //response.end('That is NOT all...');
