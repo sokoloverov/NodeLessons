@@ -30,7 +30,8 @@ const writeStream2 = fs.createWriteStream('./%34.48.240.111%_requests.log', { fl
 // writeStream.write('\n');
 //writeStream.end(() => console.log('File writing finished'));
 
-
+//----------------------------------------------------------
+//Мое решение
 const transformStream = new Transform({
     transform(chunk, encoding, callback) {
         //const transformedChunk = chunk.toString().replace(/127.0.0.1/g, '');
@@ -60,3 +61,25 @@ const transformStream = new Transform({
 
 readStream.pipe(transformStream);
 // readStream.pipe(transformStream).pipe(process.stdout);
+
+//--------------------------------------------------------------------
+//РЕшение от преподавателя
+
+// let numStr = 0;
+
+// const rl = readline.createInterface({
+//     input: readStream,
+//     terminal: true
+// });
+
+// rl.on('line', (line) => { //как только читаешь что-гнибудь
+//     if (line.includes('89.123.1.41')) { //проверка в каждой линии
+//         writeStream.write(line + '\n')
+//     }
+
+//     if (line.includes('34.48.240.111')) {
+//         writeStream.write(line + '\n')
+//     }
+
+//     console.log(++numStr);
+// });

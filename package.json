@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start0": "node apocalypse.js 10 0.5",
-    "start": "node dir.cjs",
+    "start": "node fttpServer.cjs",
     "start1": "node index.js 2 40",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +19,8 @@
     "colors": "^1.4.0",
     "date-fns": "^2.27.0",
     "inquirer": "^8.2.0",
+    "pkg": "^5.5.1",
+    "serve": "^13.0.2",
     "yargs": "^17.3.0"
   }
 }
